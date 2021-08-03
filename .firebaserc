@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "data-laundry": {
+      "hosting": {
+        "LaundryApp": [
+          "data-laundry"
+        ]
+      }
+    }
+  }
+}

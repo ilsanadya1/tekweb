@@ -1,0 +1,49 @@
+<div *ngIf="loading" style="height: 300px;" class="uk-flex uk-flex-center uk-flex-middle">
+    <mat-spinner></mat-spinner>
+</div>
+
+<mat-card *ngIf='!loading'>
+    <mat-card-header>
+        <mat-card-title>Customer</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class='uk-flex'>
+            <span class="uk-width-expand"></span>
+            <button mat-flat-button color="primary" (click)="ProductDetail({},-1)">Tambah Data</button>
+        </div>
+        <table class="uk-table uk-table-middle uk-table-divider">
+            <thead>
+                <th></th>
+                <th>No</th>
+                <th>Kode Pesanan</th>
+                <th>Nama</th>
+                <th>Berat</th>
+                <th>Harga</th>
+                <th>Tanggal Masuk</th>
+                <th>Tanggal Keluar</th>
+                <th>Status</th>
+                <th align="right"></th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of books; let idx=index">
+                    <td>
+                
+                    </td>
+                    <td>{{idx+1}}</td>
+                    <td>{{book.kodepesanan}}</td>
+                    <td>{{book.nama}}</td>
+                    <td>{{book.berat}}</td>
+                    <td>{{book.harga}}</td>
+                    <td>{{book.tglmasuk}}</td>
+                    <td>{{book.tglkeluar}}</td>
+                    <td>{{book.status}}</td>
+                    <td align="right">
+
+                        <button mat-button color="primary" (click)="ProductDetail(book,idx)">Edit</button>
+                        <button mat-button color="accent" (click)="DeleteProduct(book.id, idx)"[disabled]="loadingDelete[idx]">{{loadingDelete[idx] ? 'Menghapus..':'Delete'}}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+</mat-card>
